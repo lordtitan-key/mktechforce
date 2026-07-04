@@ -10,6 +10,9 @@ import env from "./config/env.js";
 import notFound from "./middleware/notFound.js";
 import errorHandler from "./middleware/errorHandler.js";
 
+import authRoutes from "./routes/authRoutes.js";
+import settingsRoutes from "./routes/settingsRoutes.js";
+
 const app = express();
 
 app.use(helmet());
@@ -46,6 +49,10 @@ app.get("/", (req, res) => {
 | Routes
 |--------------------------------------------------------------------------
 */
+
+app.use("/api/auth", authRoutes);
+
+app.use("/api/settings", settingsRoutes);
 
 app.use(notFound);
 
