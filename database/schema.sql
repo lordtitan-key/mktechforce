@@ -904,3 +904,29 @@ VALUES(
 TRUE
 
 );
+
+CREATE TABLE media_library (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    original_name VARCHAR(255) NOT NULL,
+
+    file_name VARCHAR(255) NOT NULL,
+
+    file_path VARCHAR(500) NOT NULL,
+
+    mime_type VARCHAR(100),
+
+    extension VARCHAR(20),
+
+    file_size BIGINT,
+
+    uploaded_by INT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (uploaded_by)
+        REFERENCES users(id)
+        ON DELETE SET NULL
+
+);

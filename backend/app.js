@@ -12,6 +12,8 @@ import errorHandler from "./middleware/errorHandler.js";
 
 import authRoutes from "./routes/authRoutes.js";
 import settingsRoutes from "./routes/settingsRoutes.js";
+import mediaRoutes from "./routes/mediaRoutes.js";
+import serviceRoutes from "./routes/serviceRoutes.js";
 
 const app = express();
 
@@ -53,6 +55,10 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 
 app.use("/api/settings", settingsRoutes);
+
+app.use("/api/media", mediaRoutes);
+
+app.use("/api/services", serviceRoutes);
 
 app.use(notFound);
 
